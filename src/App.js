@@ -1,5 +1,13 @@
 import React from 'react';
+import Navigation from './components/Navigation'
 
-function App() {return (<div>Kibble</div>)}
+const App = (props) => {
+	return (
+		<div>
+			<Navigation />
+			Kibble
+		</div>
+	)
+}
 
 export default App;
