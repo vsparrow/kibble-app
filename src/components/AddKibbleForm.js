@@ -1,6 +1,7 @@
-import React from 'react'
+import React, {useState} from 'react'
 
 const AddKibbleForm = (props)=>{
+	
 	const handleSubmit = (e)=>{
 		e.preventDefault()
 		console.log("Thanks ofr submitting")
@@ -15,6 +16,14 @@ const AddKibbleForm = (props)=>{
 		return today		
 	}
 	
+	//no need for redux with this, internal state
+	const [date, setDate] = useState(getToday())
+
+	const changeDate = (e)=>{
+		console.log(e.target.value)
+		setDate(e.target.value)
+	}
+	
 	return(
 		<form onSubmit={handleSubmit}>
 			<div>
@@ -23,9 +32,10 @@ const AddKibbleForm = (props)=>{
 					type="date"
 					id="date"
 					name="date"
-					value = {getToday()}
+					value = {date}
 					min="2020-02-01"
 					max="2042-02-01"
+					onChange={changeDate}
 				/>			
 			</div>
 			<div>
