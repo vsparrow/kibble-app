@@ -1,7 +1,7 @@
 import React from 'react';
 import Navigation from './components/Navigation'
 import AddKibbleForm from './components/AddKibbleForm'
-import ShowKibble from './components/ShowKibble'
+import ShowKibbles from './components/ShowKibbles'
 
 const App = (props) => {
 	return (
@@ -9,7 +9,7 @@ const App = (props) => {
 			<Navigation />
 			Kibble
 			<AddKibbleForm />
-			<ShowKibble />
+			<ShowKibbles />
 		</div>
 	)
 }
