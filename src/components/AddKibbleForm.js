@@ -1,4 +1,5 @@
 import React, {useState} from 'react'
+import axios from 'axios'
 
 const AddKibbleForm = (props)=>{
 	
@@ -30,7 +31,9 @@ const AddKibbleForm = (props)=>{
 		e.preventDefault()
 		console.log("Thanks for submitting")
 		//update DB here
-		
+		const url = "http://korea-ide-api-3001.run.goorm.io/kibbles"
+		axios.post(url, {date, amount: Number(amount)})
+		console.log(typeof Number(amount))
 		//reset input data here
 		setDate(getToday())
 		setAmount('')		
