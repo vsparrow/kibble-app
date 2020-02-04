@@ -2,11 +2,6 @@ import React, {useState} from 'react'
 
 const AddKibbleForm = (props)=>{
 	
-	const handleSubmit = (e)=>{
-		e.preventDefault()
-		console.log("Thanks ofr submitting")
-	}
-	
 	const getToday = ()=>{
 		const date = new Date()
 		const year = date.getFullYear()
@@ -25,11 +20,20 @@ const AddKibbleForm = (props)=>{
 		setDate(e.target.value)
 	}
 	
-	const handleQuantity = e => {
-		e.preventDefault()
+	const handleQuantity = e => {	
 		const regex = /[1234567890.]+/g // update this later to be dd\.dd
 		let input = e.target.value.match(regex)
 		setAmount(input === null ? '' : input)
+	}
+	
+	const handleSubmit = (e)=>{
+		e.preventDefault()
+		console.log("Thanks for submitting")
+		//update DB here
+		
+		//reset input data here
+		setDate(getToday())
+		setAmount('')		
 	}
 	
 	return(
