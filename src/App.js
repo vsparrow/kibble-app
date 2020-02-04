@@ -4,7 +4,8 @@ import Navigation from './components/Navigation'
 import AddKibbleForm from './components/AddKibbleForm'
 import ShowKibbles from './components/ShowKibbles'
 import About from './components/About'
-          // <Route exact path="/" render={() => <Home />} />
+import Login from './components/Login'
+
 const App = (props) => {
 	return (
 		<div>
@@ -14,7 +15,7 @@ const App = (props) => {
 				<Route exact path="/" render={()=><ShowKibbles />}/>
 				<Route path="/addkibble" render={()=><AddKibbleForm />} />
 				<Route path="/about" render={()=><About />} />
-				<Route path="/login" render={()=><ShowKibbles />} />
+				<Route path="/login" render={()=><Login />} />
 			</Router>	
 		</div>
 	)
