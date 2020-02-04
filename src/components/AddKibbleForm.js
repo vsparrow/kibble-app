@@ -18,10 +18,18 @@ const AddKibbleForm = (props)=>{
 	
 	//no need for redux with this, internal state
 	const [date, setDate] = useState(getToday())
-
+	const [amount, setAmount] = useState('')
+	
 	const changeDate = (e)=>{
 		console.log(e.target.value)
 		setDate(e.target.value)
+	}
+	
+	const handleQuantity = e => {
+		e.preventDefault()
+		const regex = /[1234567890.]+/g // update this later to be dd\.dd
+		let input = e.target.value.match(regex)
+		setAmount(input === null ? '' : input)
 	}
 	
 	return(
@@ -40,7 +48,7 @@ const AddKibbleForm = (props)=>{
 			</div>
 			<div>
 				Quantity
-				<input type="text" id="quantity" name="quantity"/>
+				<input type="text" id="quantity" name="quantity" onChange={handleQuantity} value={amount} placeholder="enter amount"/>
 			</div>
 			<input type="submit" value="Submit"/>
 		</form>
