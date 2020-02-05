@@ -19,7 +19,9 @@ const Login = props => {
 	
 	const handleUsername = e => setUsername(e.target.value)
 	const handlePassword = e => setPassword(e.target.value)
-	
+	if(props.user){
+		console.log('user is:', props.user)
+	}
 	return(
 		<div>
 			<form onSubmit={handleSubmit}>
@@ -37,5 +39,6 @@ const Login = props => {
 	)
 }
 
+const mapStateToProps = state => ({user: state.user})
 const mapDispatchToProps = {login}
-export default connect(null,mapDispatchToProps)(Login)
+export default connect(mapStateToProps,mapDispatchToProps)(Login)
