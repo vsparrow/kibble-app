@@ -15,7 +15,6 @@ const Login = props => {
 		setUsername('')
 		setPassword('')
 		props.history.push('/') //add checking to see if user state is not null
-		//we will need to bring up backend to handle logging in
 	}
 	
 	const handleUsername = e => setUsername(e.target.value)
