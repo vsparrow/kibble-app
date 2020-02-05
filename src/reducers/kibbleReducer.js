@@ -26,8 +26,7 @@ export const initKibbles = () => {
 
 export const addKibble = kibbleData => {
 	return async dispatch => {
-		const result = await axios.post(baseUrl,kibbleData)
-		console.log('result is',result.data)
-		dispatch({type: 'ADD_KIBBLE', data: result.data})
+		const result = await kibbleService.postKibble(kibbleData)
+		dispatch({type: 'ADD_KIBBLE', data: result})
 	}
 }

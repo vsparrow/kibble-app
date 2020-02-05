@@ -6,4 +6,9 @@ const getKibbles = async () => {
 	return result.data
 }
 
-export default {getKibbles}
+const postKibble = async kibbleData => {
+	const result = await axios.post(baseUrl, kibbleData)
+	return result.data
+}
+
+export default {getKibbles, postKibble}
