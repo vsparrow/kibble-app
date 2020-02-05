@@ -14,7 +14,9 @@ const Login = props => {
 		await props.login(username,password)
 		setUsername('')
 		setPassword('')
-		props.history.push('/') //add checking to see if user state is not null
+		if(props.user){ //login was successfull
+			props.history.push('/') //add checking to see if user state is not null	
+		} 		
 	}
 	
 	const handleUsername = e => setUsername(e.target.value)
