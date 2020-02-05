@@ -1,14 +1,17 @@
 import React, {useState} from 'react'
+import {connect} from 'react-redux'
+import {login} from '../reducers/userReducer'
 
 const Login = props => {
 	const [username,setUsername] = useState('')
 	const [password,setPassword] = useState('')
-	
+
 	const handleSubmit = e => {
 		e.preventDefault()
 		const data = {username, password}
 		console.log('submit pressed')
 		console.log('data', data)
+		props.login(username,password)
 		setUsername('')
 		setPassword('')
 		//we will need to bring up backend to handle logging in
@@ -34,4 +37,5 @@ const Login = props => {
 	)
 }
 
-export default Login
+const mapDispatchToProps = {login}
+export default connect(null,mapDispatchToProps)(Login)

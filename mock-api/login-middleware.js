@@ -6,5 +6,5 @@ module.exports = (req,res,next) => {
 		else {
 			res.status(400).json({error: 'wrong username or password'})
 		}
-	} else { next()}
+	} else {next()}
 } 
