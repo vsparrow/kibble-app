@@ -7,7 +7,7 @@ const ShowKibble = props => {
 	useEffect(()=>{
 		(async ()=>{
 			const result = await axios.get("http://korea-ide-api-3001.run.goorm.io/kibbles")
-			console.log(result.data)
+			// console.log(result.data)
 			setKibbles(result.data)
 		})()
 	},[])
