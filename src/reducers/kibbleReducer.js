@@ -12,7 +12,7 @@ const kibbleReducer = (state=[], action) => {
 export default kibbleReducer
 
 
-export const getKibbles = () => {
+export const initKibbles = () => {
 	return async dispatch => {
 		const kibbles = await axios.get("http://korea-ide-api-3001.run.goorm.io/kibbles")
 		console.log('kibbles is', kibbles.data)

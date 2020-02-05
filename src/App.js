@@ -8,12 +8,12 @@ import ShowKibbles from './components/ShowKibbles'
 import About from './components/About'
 import Login from './components/Login'
 
-import {getKibbles} from './reducers/kibbleReducer'
+import {initKibbles} from './reducers/kibbleReducer'
 
 const App = (props) => {
-	console.log(props)
-	props.getKibbles()
-	// useEffect(()=>{props.getKibbles()},[])
+	// console.log(props)
+	// props.getKibbles()
+	useEffect(()=>{props.initKibbles()},[])
 
 	
 	return (
@@ -30,6 +30,6 @@ const App = (props) => {
 	)
 }
 
-const mapDispatchToProps = {getKibbles}
+const mapDispatchToProps = {initKibbles}
 
 export default connect(null, mapDispatchToProps)(App);
