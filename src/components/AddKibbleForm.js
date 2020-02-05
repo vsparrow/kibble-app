@@ -1,6 +1,7 @@
 import React, {useState} from 'react'
 import {connect} from 'react-redux'
 import {addKibble} from '../reducers/kibbleReducer'
+import {withRouter} from 'react-router-dom'
 
 const AddKibbleForm = (props)=>{
 	
@@ -30,7 +31,8 @@ const AddKibbleForm = (props)=>{
 		const kibbleData = {date, amount: Number(amount)}
 		props.addKibble(kibbleData)
 		setDate(getToday())
-		setAmount('')		
+		setAmount('')
+		props.history.push('/')
 	}
 	
 	return(
@@ -57,4 +59,4 @@ const AddKibbleForm = (props)=>{
 }
 
 const mapDispatchToProps = {addKibble}
-export default connect(null,mapDispatchToProps)(AddKibbleForm)
+export default connect(null,mapDispatchToProps)(withRouter(AddKibbleForm))

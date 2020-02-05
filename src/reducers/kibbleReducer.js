@@ -1,6 +1,4 @@
 import kibbleService from '../services/kibbles'
-import axios from 'axios'
-const baseUrl = "http://korea-ide-api-3001.run.goorm.io/kibbles"
 
 const kibbleReducer = (state=[], action) => {
 	switch(action.type){
