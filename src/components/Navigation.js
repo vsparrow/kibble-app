@@ -1,17 +1,20 @@
 import React from 'react'
 import {Link} from 'react-router-dom'
-
+import {connect} from 'react-redux'
 
 const Navigation = (props)=>{
-	// return(<div>Home | Add Kibble | About | Login</div>)
 	return(
 		<div>
 			<Link to="/">Home</Link> |
 			<Link to="/addkibble">Add Kibble</Link> |
 			<Link to="/about">About</Link> |
-			<Link to="/login">Login</Link>
+			{props.user 
+				?  `Welcome ${props.user.name}`
+				:  <Link to="/login">Login</Link>
+			}
 		</div>
 	)
 }
 
-export default Navigation
+const mapStateToProps = state => ({user: state.user})
+export default connect(mapStateToProps)(Navigation)
