@@ -19,4 +19,3 @@ export const initKibbles = () => {
 		dispatch({type: 'INIT_KIBBLE', data: kibbles.data})
 	}
 }
-
