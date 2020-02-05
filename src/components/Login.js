@@ -1,27 +1,26 @@
 import React, {useState} from 'react'
 import {connect} from 'react-redux'
 import {login} from '../reducers/userReducer'
-
+import {withRouter} from 'react-router-dom'
 const Login = props => {
 	const [username,setUsername] = useState('')
 	const [password,setPassword] = useState('')
 
-	const handleSubmit = e => {
+	const  handleSubmit = async (e) => {
 		e.preventDefault()
 		const data = {username, password}
 		console.log('submit pressed')
 		console.log('data', data)
-		props.login(username,password)
+		await props.login(username,password)
 		setUsername('')
 		setPassword('')
+		props.history.push('/') //add checking to see if user state is not null
 		//we will need to bring up backend to handle logging in
 	}
 	
 	const handleUsername = e => setUsername(e.target.value)
 	const handlePassword = e => setPassword(e.target.value)
-	if(props.user){
-		console.log('user is:', props.user)
-	}
+
 	return(
 		<div>
 			<form onSubmit={handleSubmit}>
@@ -41,4 +40,4 @@ const Login = props => {
 
 const mapStateToProps = state => ({user: state.user})
 const mapDispatchToProps = {login}
-export default connect(mapStateToProps,mapDispatchToProps)(Login)
+export default connect(mapStateToProps,mapDispatchToProps)(withRouter(Login))
