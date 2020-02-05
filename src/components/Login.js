@@ -11,6 +11,7 @@ const Login = props => {
 		console.log('data', data)
 		setUsername('')
 		setPassword('')
+		//we will need to bring up backend to handle logging in
 	}
 	
 	const handleUsername = e => setUsername(e.target.value)
