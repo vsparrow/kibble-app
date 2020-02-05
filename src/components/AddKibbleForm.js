@@ -1,4 +1,6 @@
 import React, {useState} from 'react'
+import {connect} from 'react-redux'
+import {addKibble} from '../reducers/kibbleReducer'
 import axios from 'axios'
 
 const AddKibbleForm = (props)=>{
@@ -31,10 +33,12 @@ const AddKibbleForm = (props)=>{
 		e.preventDefault()
 		console.log("Thanks for submitting")
 		//update DB here
-		const url = "http://korea-ide-api-3001.run.goorm.io/kibbles"
-		axios.post(url, {date, amount: Number(amount)})
-		console.log(typeof Number(amount))
+		// const url = "http://korea-ide-api-3001.run.goorm.io/kibbles"
+		// axios.post(url, {date, amount: Number(amount)})
+		// console.log(typeof Number(amount))
 		//reset input data here
+		const kibbleData = {date, amount: Number(amount)}
+		props.addKibble(kibbleData)
 		setDate(getToday())
 		setAmount('')		
 	}
@@ -62,4 +66,5 @@ const AddKibbleForm = (props)=>{
 	)
 }
 
-export default AddKibbleForm
+const mapDispatchToProps = {addKibble}
+export default connect(null,mapDispatchToProps)(AddKibbleForm)
