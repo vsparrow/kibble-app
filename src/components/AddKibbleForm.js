@@ -1,7 +1,6 @@
 import React, {useState} from 'react'
 import {connect} from 'react-redux'
 import {addKibble} from '../reducers/kibbleReducer'
-import axios from 'axios'
 
 const AddKibbleForm = (props)=>{
 	
@@ -18,10 +17,7 @@ const AddKibbleForm = (props)=>{
 	const [date, setDate] = useState(getToday())
 	const [amount, setAmount] = useState('')
 	
-	const changeDate = (e)=>{
-		console.log(e.target.value)
-		setDate(e.target.value)
-	}
+	const changeDate = e => setDate(e.target.value)
 	
 	const handleQuantity = e => {	
 		const regex = /[1234567890.]+/g // update this later to be dd\.dd
@@ -31,12 +27,6 @@ const AddKibbleForm = (props)=>{
 	
 	const handleSubmit = (e)=>{
 		e.preventDefault()
-		console.log("Thanks for submitting")
-		//update DB here
-		// const url = "http://korea-ide-api-3001.run.goorm.io/kibbles"
-		// axios.post(url, {date, amount: Number(amount)})
-		// console.log(typeof Number(amount))
-		//reset input data here
 		const kibbleData = {date, amount: Number(amount)}
 		props.addKibble(kibbleData)
 		setDate(getToday())
