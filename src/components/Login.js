@@ -10,7 +10,7 @@ const Login = props => {
 		e.preventDefault()
 		const data = {username, password}
 		console.log('submit pressed')
-		console.log('data', data)
+		console.log('data', data)		
 		await props.login(username,password)
 		setUsername('')
 		setPassword('')
