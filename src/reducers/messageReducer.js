@@ -1,5 +1,5 @@
 const messageReducer = (state='',action) => {
-	switch(action.message){
+	switch(action.type){			
 		case 'SET_MESSAGE':
 			return action.message
 		default:

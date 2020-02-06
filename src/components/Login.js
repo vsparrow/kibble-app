@@ -22,9 +22,10 @@ const Login = props => {
 	const handleUsername = e => setUsername(e.target.value)
 	const handlePassword = e => setPassword(e.target.value)
 	// if(props.user){ props.history.push('/')}
+	// {props.message ? <div>{props.message}</div> : null}
 	return(
 		<div>
-			{props.message ? <div>{props.message}</div> : null}
+			{props.message}
 			<form onSubmit={handleSubmit}>
 				<div>
 					username:

@@ -15,8 +15,13 @@ export const login = (username,password)=>{
 	return async dispatch => {
 		const result = await loginService.login({username,password})
 		if(result){ //user login successful
-			dispatch({type: 'USER_LOGIN', user: result})
+			dispatch({type: 'SET_MESSAGE', message: ''})
+			dispatch({type: 'USER_LOGIN', user: result})			
 			return 1
+		}
+		else {
+			dispatch({type: 'SET_MESSAGE', message: 'Invalid username or password'})
+			return 0
 		}
 	}
 }
