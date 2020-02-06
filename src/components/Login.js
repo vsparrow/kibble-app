@@ -24,6 +24,7 @@ const Login = props => {
 	// if(props.user){ props.history.push('/')}
 	return(
 		<div>
+			{props.message ? <div>{props.message}</div> : null}
 			<form onSubmit={handleSubmit}>
 				<div>
 					username:
@@ -39,6 +40,6 @@ const Login = props => {
 	)
 }
 
-const mapStateToProps = state => ({user: state.user})
+const mapStateToProps = state => ({user: state.user, message: state.message})
 const mapDispatchToProps = {login}
 export default connect(mapStateToProps,mapDispatchToProps)(withRouter(Login))
