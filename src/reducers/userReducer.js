@@ -16,6 +16,7 @@ export const login = (username,password)=>{
 		const result = await loginService.login({username,password})
 		if(result){ //user login successful
 			dispatch({type: 'USER_LOGIN', user: result})
+			return 1
 		}
 	}
 }

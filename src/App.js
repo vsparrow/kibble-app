@@ -30,6 +30,7 @@ const App = (props) => {
 	)
 }
 
+const mapStateToProps = state => ({user: state.user})
 const mapDispatchToProps = {initKibbles}
 
-export default connect(null, mapDispatchToProps)(App);
+export default connect(mapStateToProps, mapDispatchToProps)(App);

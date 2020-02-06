@@ -7,7 +7,7 @@ const login = async ({username,password}) => {
 		console.log('result is', result)
 		return result.data		
 	} catch(error){
-		return null // user is null if unsucccessful login
+		return null // user is null if no lo
 	}
 
 }
