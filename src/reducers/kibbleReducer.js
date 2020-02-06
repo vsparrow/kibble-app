@@ -26,5 +26,7 @@ export const addKibble = kibbleData => {
 	return async dispatch => {
 		const result = await kibbleService.postKibble(kibbleData)
 		dispatch({type: 'ADD_KIBBLE', data: result})
+		dispatch({type: 'SET_MESSAGE', message: `Added kibble data for ${result.date} with ${result.amount} grams of kibble.`})		
+		setTimeout(()=>{dispatch({type: 'SET_MESSAGE', message: ''})},5000)		
 	}
 }

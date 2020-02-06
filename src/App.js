@@ -20,6 +20,7 @@ const App = (props) => {
 		<div>
 			<Router>
 				<Navigation />
+				<div>{props.message}</div>
 				Kibble
 				<Route exact path="/" render={()=><ShowKibbles />}/>
 				<Route path="/addkibble" render={()=><AddKibbleForm />} />
@@ -30,7 +31,7 @@ const App = (props) => {
 	)
 }
 
-const mapStateToProps = state => ({user: state.user})
+const mapStateToProps = state => ({message: state.message, user: state.user})
 const mapDispatchToProps = {initKibbles}
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);
