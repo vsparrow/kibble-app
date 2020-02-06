@@ -25,7 +25,6 @@ const Login = props => {
 	// {props.message ? <div>{props.message}</div> : null}
 	return(
 		<div>
-			{props.message}
 			<form onSubmit={handleSubmit}>
 				<div>
 					username:
