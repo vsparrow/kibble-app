@@ -1,6 +1,7 @@
 import React from 'react'
 import {Link} from 'react-router-dom'
 import {connect} from 'react-redux'
+import LogoutButton from './LogoutButton'
 
 const Navigation = (props)=>{
 	return(
@@ -8,10 +9,8 @@ const Navigation = (props)=>{
 			<Link to="/">Home</Link> |
 			<Link to="/addkibble">Add Kibble</Link> |
 			<Link to="/about">About</Link> |
-			{props.user 
-				?  `Welcome ${props.user.name}`
-				:  <Link to="/login">Login</Link>
-			}
+			{props.user ? <LogoutButton /> :  <Link to="/login">Login</Link>}
+			{props.user ? <div>Welcome {props.user.name}</div> : null}
 		</div>
 	)
 }
