@@ -18,7 +18,7 @@ export default kibbleReducer
 export const initKibbles = () => {
 	return async dispatch => {
 		const kibbles = await kibbleService.getKibbles()
-		dispatch({type: 'INIT_KIBBLE', data: kibbles})
+		if(kibbles){dispatch({type: 'INIT_KIBBLE', data: kibbles})}
 	}
 }
 

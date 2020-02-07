@@ -23,8 +23,7 @@ export const login = (username,password)=>{
 			return 1
 		}
 		else {
-			// dispatch({type: 'SET_MESSAGE', message: 'Invalid username or password'})
-			// setTimeout(()=>{dispatch({type: 'SET_MESSAGE', message: ''})},5000)
+			// error messages now dispatched at service errorHandler
 			return 0
 		}
 	}
