@@ -7,7 +7,7 @@ const Navigation = (props)=>{
 	return(
 		<div>
 			<Link to="/">Home</Link> |
-			<Link to="/addkibble">Add Kibble</Link> |
+			{props.user ? <Link to="/addkibble">Add Kibble</Link> : null} | 
 			<Link to="/about">About</Link> |
 			{props.user ? <LogoutButton /> :  <Link to="/login">Login</Link>}
 			{props.user ? <div>Welcome {props.user.name}</div> : null}
