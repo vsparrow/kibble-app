@@ -14,8 +14,13 @@ const getKibbles = async () => {
 }
 
 const postKibble = async kibbleData => {
-	const result = await axios.post(baseUrl, kibbleData)
-	return result.data
+	try{
+		const result = await axios.post(baseUrl, kibbleData)
+		return result.data	
+	} catch(error){
+		errorHandler(error)
+		return null
+	}
 }
 
 export default {getKibbles, postKibble}
