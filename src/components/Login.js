@@ -13,8 +13,9 @@ const Login = props => {
 		console.log('data', data)		
 		setUsername('')
 		setPassword('')
-		const result = await props.login(username,password)
+		const result = await props.login(username,password) 
 		console.log('LOGIN',result)
+		
 		if(result){props.history.push('/') } //login was successfull
 		//set a message to let people know of invalid logins
 	}

@@ -9,12 +9,19 @@ import About from './components/About'
 import Login from './components/Login'
 
 import {initKibbles} from './reducers/kibbleReducer'
+import {localStorageLogin} from './reducers/userReducer'
 
 const App = (props) => {
 	// console.log(props)
 	// props.getKibbles()
 	useEffect(()=>{props.initKibbles()},[])
-
+	useEffect(()=>{
+		const loginState = window.localStorage.getItem('kibbleAppUser')
+		if(loginState){
+			const user = JSON.parse(loginState)
+			props.localStorageLogin(user)
+		}
+	},[])
 	
 	return (
 		<div>
@@ -32,6 +39,6 @@ const App = (props) => {
 }
 
 const mapStateToProps = state => ({message: state.message, user: state.user})
-const mapDispatchToProps = {initKibbles}
+const mapDispatchToProps = {initKibbles,localStorageLogin}
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);
