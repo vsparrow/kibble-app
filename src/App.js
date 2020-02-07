@@ -12,8 +12,6 @@ import {initKibbles} from './reducers/kibbleReducer'
 import {localStorageLogin} from './reducers/userReducer'
 
 const App = (props) => {
-	// console.log(props)
-	// props.getKibbles()
 	useEffect(()=>{props.initKibbles()},[])
 	useEffect(()=>{
 		const loginState = window.localStorage.getItem('kibbleAppUser')

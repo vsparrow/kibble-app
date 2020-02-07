@@ -1,6 +1,4 @@
 import loginService from '../services/login'
-// import axios from 'axios'
-// const baseUrl = "http://korea-ide-api-3001.run.goorm.io/login"
 
 const userReducer = (state=null, action)=>{
 	switch(action.type){
