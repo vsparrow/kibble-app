@@ -1,13 +1,13 @@
 import React from 'react'
 import {connect} from 'react-redux'
 
-const ShowKibble = props => {
+const ShowKibble = props => {	
 	return(
 		<div>
 		 Show Kibble info here
 		<h2>kibble data</h2>
 		<ul>
-			{props.kibbles.map(k=><li key={k.id}>{k.date} {k.amount}</li>)}
+			{props.kibbles.sort((a,b)=>b.id-a.id).map(k=><li key={k.id}>{k.date} {k.amount}</li>)}
 		</ul>	
 		</div>
 	)
