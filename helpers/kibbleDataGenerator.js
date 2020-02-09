@@ -1,3 +1,5 @@
+const fs = require('fs')
+const path = require('path')
 // This function generates kibble data until we have real data
 // Units are grams
 // Full 382 grams
@@ -7,13 +9,6 @@
 
 // will generate a json file for use with db.json
 // id / date / amount: number / mockdata: bool
-
-
-    // {
-    //   "id": 1,
-    //   "date": "2020-02-01",
-    //   "amount": "2"
-    // },
 
 const generate = ()=>{
 	//create db.json object
@@ -25,17 +20,19 @@ const generate = ()=>{
 	let counter = 0; let newDate; let newDay;
 	while(counter <90){
 		newDate = new Date( date.getFullYear(), date.getMonth(), date.getDate() - counter )	
-		amount = amount -92
-		newDay = { "id": ++id,date: newDate, amount 	}
+		amount = amount -92 //average day change of kibble
+		newDay = { "id": ++id,date: newDate, amount , }
 		data["kibbles"].push(newDay)
 		counter++
 		//this emulates refilling the kibble bowl
 		if(amount < 92){
-			amount  = 392
+			amount = 392
 			newDay = { "id": ++id,date: newDate, amount	}
 			data["kibbles"].push(newDay)
 		}
 	}
-	console.log(data)
+	const jsonData = JSON.stringify(data)
+	console.log(jsonData)
+	fs.writeFile(__dirname + '/../db.json',jsonData, err=>{if(err){console.log(err)}})
 }
 generate()
