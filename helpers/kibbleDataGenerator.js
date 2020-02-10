@@ -17,12 +17,12 @@ const generate = ()=>{
 
 	const data = { "kibbles": []}
 	let id = 0
-	let date = new Date(2020,1,7) //months are 0-11
+	let date = new Date(2019,10,1) //months are 0-11
 	let amount = 382
 	let counter = 0; let newDate; let newDay;
 
-	while(counter <90){
-		newDate = new Date( date.getFullYear(), date.getMonth(), date.getDate() - counter )	
+	while(counter <100){
+		newDate = new Date( date.getFullYear(), date.getMonth(), date.getDate() + counter )	
 		amount = amount - getAmount() //average day change of kibble
 		newDay = { "id": ++id,date: newDate, amount , mockData: true}
 		data["kibbles"].push(newDay)
