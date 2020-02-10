@@ -9,6 +9,9 @@ const path = require('path')
 
 // will generate a json file for use with json-server
 
+//randomizing daily kibble amount 
+const getAmount = ()=>  (92 - Math.round(Math.random() * 10))
+
 
 const generate = ()=>{
 
@@ -20,7 +23,7 @@ const generate = ()=>{
 
 	while(counter <90){
 		newDate = new Date( date.getFullYear(), date.getMonth(), date.getDate() - counter )	
-		amount = amount -92 //average day change of kibble
+		amount = amount - getAmount() //average day change of kibble
 		newDay = { "id": ++id,date: newDate, amount , mockData: true}
 		data["kibbles"].push(newDay)
 		counter++
