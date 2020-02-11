@@ -1,6 +1,6 @@
 import React, {useState} from 'react'
 import {connect} from 'react-redux'
-
+import Chart from './Chart'
 
 
 const ShowKibble = props => {	
@@ -25,6 +25,8 @@ const ShowKibble = props => {
 				newData.push({dailyConsumed,date,keyId})								
 			}			
 		}	
+		console.log(typeof newData[0].date)
+		console.log(new Date(newData[0].date))
 		return <ul>{newData.map(d=><li key={d.keyId}>{d.date} {d.dailyConsumed}</li>)}</ul>
 	}
 	
@@ -35,6 +37,8 @@ const ShowKibble = props => {
 			case "daily-text":
 				// return "RENDER HERE"
 				return dailyKibblesEaten(props.kibbles)
+			case "chart-test":
+				return <Chart kibbles={props.kibbles}/> //switch to redux
 		}
 	}
 	
@@ -47,6 +51,7 @@ const ShowKibble = props => {
 			<select onChange={handleChange}>
 				<option value="raw" >Raw Data</option>
 				<option value="daily-text" >Daily amount consumed - text</option>
+				<option value="chart-test" >Charted data -test</option>
 			</select>	
 			{displaySelection()}
 		</div>
