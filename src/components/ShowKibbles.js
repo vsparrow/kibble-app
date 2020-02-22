@@ -51,7 +51,6 @@ const ShowKibble = props => {
 			<select onChange={handleChange}>
 				<option value="raw" >Raw Data</option>
 				<option value="daily-text" >Daily amount consumed - text</option>
-				<option value="chart-test" >Charted data -test</option>
 			</select>	
 			{displaySelection()}
 		</div>
