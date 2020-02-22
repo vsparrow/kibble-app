@@ -13,18 +13,32 @@ const ShowKibble = props => {
 			</ul>)
 	}
 	
+	const stringToDate = string => {
+		console.log(typeof string)
+		console.log(string)
+		console.log(Date.parse(string))
+		console.log( (new Date(string)).toString())
+		const d = new Date(string)
+		console.log(d.getFullYear())
+		console.log(d.getMonth()+1)
+		console.log(d.getDate())
+		console.log(d.getTimezoneOffset()) // returns minutes offset -300 is -GMT 5
+	}
+	
 	const dailyKibblesEaten = data => { 
 		const newData = []
-		const sortedData = data.sort((a,b)=>b.id-a.id)
-		for(let i=1;i<sortedData.length;i++){
-			if(sortedData[i].amount < sortedData[i-1].amount){ //meaning sortedData[i] is not a refill
-				const dailyConsumed = sortedData[i-1].amount - sortedData[i].amount
-				const date = sortedData[i].date
+		// const sortedData = data.sort((a,b)=>b.id-a.id)
+		for(let i=1;i<data.length;i++){
+			if(data[i].amount < data[i-1].amount){ //meaning data[i] is not a refill
+				const dailyConsumed = data[i-1].amount - data[i].amount
+				const date = data[i].date
+				stringToDate(date)
 				const keyId = i
 				newData.push({dailyConsumed,date,keyId})								
 			}			
-		}	
-		return <ul>{newData.map(d=><li key={d.keyId}>{d.date} {d.dailyConsumed}</li>)}</ul>
+		}
+		//reverse is needed to display data newest first
+		return <ul>{newData.reverse().map(d=><li key={d.keyId}>{d.date} {d.dailyConsumed}</li>)}</ul>
 	}
 	
 	const displaySelection = () => {
