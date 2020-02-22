@@ -4,7 +4,8 @@ import Chart from './Chart'
 
 
 const ShowKibble = props => {	
-	const [selection, setSelection] = useState("raw")
+	// const [selection, setSelection] = useState("raw")
+	const [selection, setSelection] = useState("daily-text")
 	// {data.sort((a,b)=>b.id-a.id).map(k=><li key={k.id}>{k.date} {k.amount}</li>)}
 	//extract to sub componenets
 	const getRaw = data => 	{
@@ -25,8 +26,8 @@ const ShowKibble = props => {
 				newData.push({dailyConsumed,date,keyId})								
 			}			
 		}	
-		console.log(typeof newData[0].date)
-		console.log(new Date(newData[0].date))
+		// console.log(typeof newData[0].date)
+		// console.log(new Date(newData[0].date))
 		return <ul>{newData.map(d=><li key={d.keyId}>{d.date} {d.dailyConsumed}</li>)}</ul>
 	}
 	
@@ -35,10 +36,7 @@ const ShowKibble = props => {
 			case "raw":
 				return getRaw(props.kibbles)
 			case "daily-text":
-				// return "RENDER HERE"
 				return dailyKibblesEaten(props.kibbles)
-			case "chart-test":
-				return <Chart kibbles={props.kibbles}/> //switch to redux
 		}
 	}
 	
@@ -49,8 +47,8 @@ const ShowKibble = props => {
 		 Show Kibble info here
 		<h2>kibble data</h2>
 			<select onChange={handleChange}>
-				<option value="raw" >Raw Data</option>
 				<option value="daily-text" >Daily amount consumed - text</option>
+				<option value="raw" >Raw Data</option>
 			</select>	
 			{displaySelection()}
 		</div>
