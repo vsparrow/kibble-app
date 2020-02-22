@@ -1,10 +1,8 @@
 import React, {useState} from 'react'
 import {connect} from 'react-redux'
-import Chart from './Chart'
 
 
 const ShowKibble = props => {	
-	// const [selection, setSelection] = useState("raw")
 	const [selection, setSelection] = useState("daily-text")
 	// {data.sort((a,b)=>b.id-a.id).map(k=><li key={k.id}>{k.date} {k.amount}</li>)}
 	//extract to sub componenets
@@ -16,7 +14,6 @@ const ShowKibble = props => {
 	}
 	
 	const dailyKibblesEaten = data => { 
-		console.log(data)
 		const newData = []
 		for(let i=1;i<data.length;i++){
 			if(data[i].amount < data[i-1].amount){ //meaning data[i] is not a refill
@@ -26,8 +23,6 @@ const ShowKibble = props => {
 				newData.push({dailyConsumed,date,keyId})								
 			}			
 		}	
-		// console.log(typeof newData[0].date)
-		// console.log(new Date(newData[0].date))
 		return <ul>{newData.map(d=><li key={d.keyId}>{d.date} {d.dailyConsumed}</li>)}</ul>
 	}
 	
